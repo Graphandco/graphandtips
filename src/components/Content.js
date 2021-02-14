@@ -1,12 +1,12 @@
 import React from 'react'
 
-const Content = ({tips}) => {
+const Content = ({tips, showTips}) => {
     return (
         <div className="content">
             <h1>Tips</h1>
-            {tips.map(tip => (
+            {showTips ? tips.map(tip => (
                 <div className="tip-item" key={tip.id}>{tip.title.rendered}</div>
-            ))}
+            )) : <div>Hello</div>}
         </div>
     )
 }

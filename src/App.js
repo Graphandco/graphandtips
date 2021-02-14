@@ -7,7 +7,8 @@ import Content from './components/Content';
 function App() {
 
     const [tips, setTips] = useState([]);
-    const [searchText, setSearchText] = useState('');
+    const [showTips, setShowTips] = useState(false);
+    const [searchText, setSearchText] = useState('zzzzz');
     const [isLoading, setIsLoading] = useState(false);
 
     /*****************************
@@ -47,8 +48,22 @@ function App() {
     *****************************/
     const handleSearch = (e)=> {
         setSearchText(e.target.value)
+        setShowTips(true)
     }
 
+    /*****************************
+    HIDE CONTENT TIPS IF SEARCH EMPTY
+    *****************************/
+    useEffect(() => {
+        const hideTips = async () => {
+            searchText.length === 0 && setShowTips(false)
+        };
+        hideTips();
+    }, [searchText]);
+
+    /*****************************
+    FILTER TIPS
+    *****************************/
     const filteredTips = tips.filter((tip) => {
         return (
             tip.title.rendered
@@ -59,8 +74,8 @@ function App() {
 
     return (
         <div className="App">
-            <Sidebar tips={tips} handleSearch={handleSearch} />
-            <Content tips={filteredTips} />
+            <Sidebar tips={tips} handleSearch={handleSearch}  />
+            <Content tips={filteredTips} showTips={showTips}/>
         </div>
     );
 }
