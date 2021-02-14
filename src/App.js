@@ -7,8 +7,12 @@ import Content from './components/Content';
 function App() {
 
     const [tips, setTips] = useState([]);
+    const [searchText, setSearchText] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
+    /*****************************
+    GETTING TIPS
+    *****************************/
     useEffect(() => {
         const handleTipListing = async () => {
             setIsLoading(true);
@@ -28,6 +32,9 @@ function App() {
         handleTipListing();
     }, [setTips]);
 
+    /*****************************
+    TIPS BY TYPE
+    *****************************/
     const tipsByType =[... new Set(tips.map(tip => tip.acf.langage)) ]
     tipsByType.sort((a, b) =>{
         if(a < b) { return -1; }
@@ -35,12 +42,28 @@ function App() {
         return 0;
     })
 
+    /*****************************
+    SEARCHING TIPS
+    *****************************/
+    const handleSearch = (e)=> {
+        setSearchText(e.target.value)
+    }
+
+    const filteredTips = tips.filter((tip) => {
+        return (
+            tip.title.rendered
+                .toLowerCase()
+                .includes(searchText.toLowerCase())
+        );
+    });
+
     return (
         <div className="App">
-            <Sidebar tips={tips} />
-            <Content tips={tips} />
+            <Sidebar tips={tips} handleSearch={handleSearch} />
+            <Content tips={filteredTips} />
         </div>
     );
 }
 
 export default App;
+
