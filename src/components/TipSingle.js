@@ -63,7 +63,7 @@ const TipSingle = () => {
         !isLoading &&
             <div className='tip-wrapper'>
                 <div className="tip-header">
-                    <h1>{tipTitle}</h1>
+                    <h1  dangerouslySetInnerHTML={{__html: tipTitle}}/>
                     <div className="tip-subheader">
                         <NavLink to='/' exact>
                             <button className='back'><BsChevronLeft />Retour</button>
