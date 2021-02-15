@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 const Accordeon = ({tipCategory, tips}) => {
     const [active, setActive] = useState('');
@@ -49,7 +50,11 @@ const Accordeon = ({tipCategory, tips}) => {
             >                
                 {filteredTips.map(filteredTip => (
                     <div className='accordeon-text'
-                    key={filteredTip.id}>{filteredTip.title.rendered}
+                    key={filteredTip.id}>
+                        <Link to={`/tip/${filteredTip.id}`} key={filteredTip.id}>
+                            <span className='tip-item'>{filteredTip.title.rendered}</span>
+                        </Link>
+                        
                 </div>
                 ))}
             </div>

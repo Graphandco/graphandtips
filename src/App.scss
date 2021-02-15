@@ -11,6 +11,7 @@ body {
     --primary: #101b3b;
     --secondary: #f5f5f5;
     --lighttext: #7e88a5;
+    --green: #218838;
 
     background-color: var(--secondary);
     padding: 5rem 2rem;
@@ -26,6 +27,14 @@ h1,
 h2,
 h3 {
     color: black;
+}
+h1 {
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .App {
@@ -44,6 +53,11 @@ h3 {
         font-size: 1.4rem;
         color: white;
         margin-bottom: 1.5rem;
+        transition: 0.3s;
+        text-shadow: 0px 0px 0px white;
+        &:hover {
+            text-shadow: 0px 0px 5px white;
+        }
     }
 
     .search {
@@ -139,5 +153,77 @@ h3 {
         &:last-child {
             margin-bottom: 0.8rem;
         }
+    }
+}
+
+.tip-wrapper {
+    .tip-subheader {
+        display: flex;
+        justify-content: space-between;
+    }
+    .back {
+        margin-bottom: 1rem;
+        padding: 8px 15px 8px 10px;
+        border-radius: 3px;
+        outline: none;
+        border: none;
+        background-color: var(--green);
+        color: white;
+        font-family: 'Raleway', sans-serif;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: 0.3s;
+
+        svg {
+            margin-right: 7px;
+        }
+
+        &:hover {
+            background-color: #1e7e34;
+        }
+    }
+    .langage span {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        background: var(--primary);
+        color: white;
+        padding: 3px 10px;
+        border-radius: 50px;
+    }
+
+    .code {
+        position: relative;
+
+        pre {
+            background-color: var(--primary) !important;
+            padding: 1em 3em 3em 1em !important;
+
+            code {
+                white-space: break-spaces !important;
+            }
+        }
+    }
+
+    .copy {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 0.5rem 1.25rem 0.5rem 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 10px 0 0 0;
+        background-color: var(--blue);
+        outline: none;
+        color: white;
+        cursor: pointer;
+        transition: ease-in-out 0.15s;
+    }
+    .copy:hover {
+        background-color: var(--green);
     }
 }

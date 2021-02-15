@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
+
 import './App.scss';
 import Sidebar from './components/Sidebar';
 import Content from './components/Content';
@@ -56,7 +57,7 @@ function App() {
     *****************************/
     useEffect(() => {
         const hideTips = async () => {
-            searchText.length === 0 && setShowTips(false)
+            await searchText.length === 0 && setShowTips(false)
         };
         hideTips();
     }, [searchText]);
@@ -75,6 +76,10 @@ function App() {
     return (
         <div className="App">
             <Sidebar tips={tips} handleSearch={handleSearch}  />
+
+
+
+
             <Content tips={filteredTips} showTips={showTips}/>
         </div>
     );

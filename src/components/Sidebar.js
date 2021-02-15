@@ -1,5 +1,6 @@
 import React from 'react'
 import Accordeon from './Accordeon';
+import { NavLink } from 'react-router-dom';
 
 const Sidebar = ({tips, handleSearch}) => {
 
@@ -14,7 +15,10 @@ const Sidebar = ({tips, handleSearch}) => {
 
     return (
         <div className="sidebar">
-            <div className="header">Graph & Tips</div>
+            <NavLink to='/' exact id='logo'>
+                <div className="header">Graph & Tips</div>
+            </NavLink>
+            
             <div className="search">
                 <input type="text" id="name" name="name" placeholder="Rechercher un tip..."
                 size="20" onChange={handleSearch}>
