@@ -15,10 +15,7 @@ import { AiOutlineCopy } from 'react-icons/ai';
 const TipSingle = () => {
     const { id } = useParams();
     const [tipACF, setTipACF] = useState([]);
-    const [tip, setTip] = useState([]);
     const [tipACFCode, setTipACFCode] = useState([]);
-    const [tipACFLangage, setTipACFLangage] = useState([]);
-    const [tipContent, setTipContent] = useState([]);
     const [tipTitle, setTipTitle] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
@@ -33,8 +30,6 @@ const TipSingle = () => {
                 );
                 // setTip(response.data);
                 setTipTitle(response.data.title.rendered);
-                setTip(response.data);
-                setTipContent(response.data.content.rendered);
                 setTipACF(response.data.acf);
                 setTipACFCode(response.data.acf.code);
                 setIsLoading(false);
