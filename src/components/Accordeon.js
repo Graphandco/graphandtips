@@ -52,7 +52,7 @@ const Accordeon = ({tipCategory, tips}) => {
                     <div className='accordeon-text'
                     key={filteredTip.id}>
                         <Link to={`/tip/${filteredTip.id}`} key={filteredTip.id}>
-                            <span className='tip-item'>{filteredTip.title.rendered}</span>
+                            <span className='tip-item' dangerouslySetInnerHTML={{__html: filteredTip.title.rendered}}/>                          
                         </Link>
                         
                 </div>

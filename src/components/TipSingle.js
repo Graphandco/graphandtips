@@ -77,7 +77,7 @@ const TipSingle = () => {
                     {tipACFCode.map((code, index) => (
                         <>
                         <div key={index} className="tip-details">
-                            <p className='desc'>{code.description_du_code}</p>
+                            <p className='desc' dangerouslySetInnerHTML={{__html: code.description_du_code}}/>
                             <div className="code">                                
                                 <SyntaxHighlighter
                                     style={atomDark}
