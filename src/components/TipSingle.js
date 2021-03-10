@@ -75,7 +75,6 @@ const TipSingle = () => {
                 </div>
                 <div className="tip-content">
                     {tipACFCode.map((code, index) => (
-                        <>
                         <div key={index} className="tip-details">
                             <p className='desc' dangerouslySetInnerHTML={{__html: code.description_du_code}}/>
                             <div className="code">                                
@@ -93,7 +92,6 @@ const TipSingle = () => {
                                 <ToastContainer />
                             </div>
                         </div>
-                        </>
                     ))}
                 </div>
             </div>

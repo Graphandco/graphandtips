@@ -8,8 +8,8 @@ import Content from './components/Content';
 function App() {
 
     const [tips, setTips] = useState([]);
-    const [showTips, setShowTips] = useState(false);
-    const [searchText, setSearchText] = useState('zzzzz');
+    const [showTips, setShowTips] = useState(true);
+    const [searchText, setSearchText] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
     /*****************************
@@ -76,10 +76,6 @@ function App() {
     return (
         <div className="App">
             <Sidebar tips={tips} handleSearch={handleSearch}  />
-
-
-
-
             <Content tips={filteredTips} showTips={showTips}/>
         </div>
     );

@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 const Sidebar = ({tips, handleSearch}) => {
 
+    console.log(tips);
 
     const tipsByType =[... new Set(tips.map(tip => tip.acf.langage)) ]
     tipsByType.sort((a, b) =>{
